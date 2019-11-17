@@ -6,7 +6,10 @@
 class Colors
 {
   public:
-    static CRGB Red(int intensity);
-}
+    CRGB red(int intensity);
+
+  // private:
+  //   Colors() {}
+};
 
 #endif

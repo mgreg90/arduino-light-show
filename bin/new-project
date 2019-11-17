@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+cd projects
+arduino-cli sketch new $1

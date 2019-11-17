@@ -23,8 +23,7 @@ public:
     _lastLEDIndex = lastLEDIndex;
   };
 
-  void setColor(CRGB color)
-  {
+  void setColor(CRGB color) {
     for (int i = _firstLEDIndex; i < _lastLEDIndex; i++)
     {
       leds[i] = color;
@@ -42,52 +41,39 @@ Strand TopStrand = Strand(line3Start, line3End);
 Strand LeftStrand = Strand(line4Start, line4End);
 
 CRGB red = CRGB(intensity, 0, 0);
-CRGB white = CRGB(intensity, intensity, intensity);
 CRGB green = CRGB(0, intensity, 0);
-CRGB teal = CRGB(4, intensity, 19);
 CRGB blue = CRGB(0, 0, intensity);
 CRGB yellow = CRGB(intensity, intensity, 0);
 CRGB purple = CRGB(0, intensity, intensity);
-CRGB pink = CRGB(intensity, 12, 21);
+CRGB pink = CRGB(255 / 255 * 30, 105 / 255 * 30, 180 / 255 * 30);
 
 void setup()
 {
   FastLED.addLeds<WS2812, 2, GRB>(leds, 150);
 }
 
-void loop()
+void loop() 
 {
-  single_loop(yellow, pink, teal, white);
+  for (int i = 0; i < 8; i++) {
+    single_loop(blue, green);
+  }
+  for (int i = 0; i < 8; i++) {
+    single_loop(yellow, purple);
+  }
 }
 
-void single_loop(CRGB color1, CRGB color2, CRGB color3, CRGB color4)
-{
+void single_loop(CRGB color1, CRGB color2) {
   BottomStrand.setColor(color1);
-  RightStrand.setColor(color2);
-  TopStrand.setColor(color3);
-  LeftStrand.setColor(color4);
-  FastLED.show();
-  delay(beatMilliseconds);
-
-  BottomStrand.setColor(color2);
-  RightStrand.setColor(color3);
-  TopStrand.setColor(color4);
-  LeftStrand.setColor(color1);
-  FastLED.show();
-  delay(beatMilliseconds);
-
-  BottomStrand.setColor(color3);
-  RightStrand.setColor(color4);
   TopStrand.setColor(color1);
+  RightStrand.setColor(color2);
   LeftStrand.setColor(color2);
   FastLED.show();
   delay(beatMilliseconds);
 
-  BottomStrand.setColor(color4);
-  RightStrand.setColor(color1);
+  BottomStrand.setColor(color2);
   TopStrand.setColor(color2);
-  LeftStrand.setColor(color3);
+  RightStrand.setColor(color1);
+  LeftStrand.setColor(color1);
   FastLED.show();
   delay(beatMilliseconds);
-
 }

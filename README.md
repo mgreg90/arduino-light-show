@@ -18,6 +18,12 @@ This project relies heavily on [FastLED](https://github.com/FastLED/FastLED).
 
 This project was also started and inspired by [Project Tempos](https://www.temposlighting.com/guides/how-to-add-custom-leds-to-any-project).
 
+## TODO
+
+* Build abstractions to simplify applying effects to strands.
+* Build more projects.
+* Build generator scripts for new libraries.
+
 ## Libraries
 
 ### Colors
@@ -25,6 +31,10 @@ This project was also started and inspired by [Project Tempos](https://www.tempo
 A library of functions for setting LEDs to specific colors. Not ready for use.
 
 ## Projects
+
+### Double Flat Alternating
+
+Simple pattern of 8 beats alternating 2 colors.
 
 ### Lights Off
 
@@ -34,3 +44,19 @@ moment.
 ### Rainbow
 
 Code taken directly from [Project Tempos](https://www.temposlighting.com/guides/how-to-add-custom-leds-to-any-project). All credit to them.
+
+### Ring
+
+Running rainbow snake.
+
+## Scripts
+
+  If you encounter a permissions error ("permission denied:") run
+```sh
+chmod u+x scripts/failing-script-file-name
+```
+
+### new-project
+
+new-project is a simple wrapper around the arduino-cli command to create a new
+sketch.
