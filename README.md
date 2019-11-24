@@ -49,6 +49,11 @@ Code taken directly from [Project Tempos](https://www.temposlighting.com/guides/
 
 Running rainbow snake.
 
+### Confetti
+Imported from [atuline's FastLED-Demos repo](https://github.com/atuline/FastLED-Demos)
+
+Running rainbow snake.
+
 ## Scripts
 
   If you encounter a permissions error ("permission denied:") run

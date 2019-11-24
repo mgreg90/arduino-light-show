@@ -1,64 +1,39 @@
 // TODO use local libraries instead of just one messy file.
-// #include <Colors.h>
+#include <Colors.h>
+#include <Strand.h>
 #include <FastLED.h>
 
 CRGB leds[150];
 int intensity = 30;
 int beatMilliseconds = 350;
-int line1Start = 0;
-int line1End = 45;
-int line2Start = 46;
-int line2End = 75;
-int line3Start = 76;
-int line3End = 120;
-int line4Start = 121;
-int line4End = 150;
 
-class Strand
-{
-public:
-  Strand(int firstLEDIndex, int lastLEDIndex)
-  {
-    _firstLEDIndex = firstLEDIndex;
-    _lastLEDIndex = lastLEDIndex;
-  };
-
-  void setColor(CRGB color) {
-    for (int i = _firstLEDIndex; i < _lastLEDIndex; i++)
-    {
-      leds[i] = color;
-    }
-  }
-
-private:
-  int _firstLEDIndex;
-  int _lastLEDIndex;
-};
-
-Strand BottomStrand = Strand(line1Start, line1End);
-Strand RightStrand = Strand(line2Start, line2End);
-Strand TopStrand = Strand(line3Start, line3End);
-Strand LeftStrand = Strand(line4Start, line4End);
-
-CRGB red = CRGB(intensity, 0, 0);
-CRGB green = CRGB(0, intensity, 0);
-CRGB blue = CRGB(0, 0, intensity);
-CRGB yellow = CRGB(intensity, intensity, 0);
-CRGB purple = CRGB(0, intensity, intensity);
-CRGB pink = CRGB(255 / 255 * 30, 105 / 255 * 30, 180 / 255 * 30);
+Strand BottomStrand;
+Strand RightStrand;
+Strand TopStrand;
+Strand LeftStrand;
 
 void setup()
 {
   FastLED.addLeds<WS2812, 2, GRB>(leds, 150);
+  BottomStrand = Strand(leds, 0, 45);
+  RightStrand = Strand(leds, 46, 75);
+  TopStrand = Strand(leds, 76, 120);
+  LeftStrand = Strand(leds, 121, 150);
 }
 
 void loop() 
 {
+  // TODO figure out how to use strand here!
+  // BottomStrand.setColor(CRGB(30, 30, 30));
+  // for (int i = 0; i < 150; i++) {
+  //   leds[i] = Colors::blue(30);
+  // }
+  // FastLED.show();
   for (int i = 0; i < 8; i++) {
-    single_loop(blue, green);
+    single_loop(Colors::blue(intensity), Colors::green(intensity));
   }
   for (int i = 0; i < 8; i++) {
-    single_loop(yellow, purple);
+    single_loop(Colors::yellow(intensity), Colors::purple(intensity));
   }
 }
 

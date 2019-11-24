@@ -8,7 +8,7 @@
 #include <FastLED.h>
 
 CRGB leds[150];
-int intensity = 30;
+int intensity = 1;
 int changeDelay = 30;
 
 CRGB blank = CRGB(0, 0, 0);

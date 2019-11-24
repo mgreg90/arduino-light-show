@@ -1,4 +1,6 @@
 {
     "board": "arduino:avr:uno",
-    "programmer": "AVRISP mkII"
+    "programmer": "AVRISP mkII",
+    "port": "/dev/cu.usbmodem14101",
+    "sketch": "projects/Ring/Ring.ino"
 }
