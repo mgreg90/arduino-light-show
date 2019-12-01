@@ -1,0 +1,1 @@
+ruby ./scripts/gen/gen.rb $@
